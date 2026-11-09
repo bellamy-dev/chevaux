@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Races de chevaux — Atlas de 624 races</title>
+    <meta
+      name="description"
+      content="Un atlas de 624 races de chevaux et poneys : origines, usages, morphologies et photographies, du poney des Açores au Shire."
+    />
+    <meta property="og:title" content="Races de chevaux — Atlas de 624 races" />
+    <meta
+      property="og:description"
+      content="624 races, 142 pays, 451 photographies. Un atlas vivant des chevaux et poneys du monde."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23b64a2e'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23f4efe6'%3EC%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#collection">Aller à la collection</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Cheval, atlas des races — accueil">
+        <span class="brand-name">CHEVAL<span class="brand-dot">.</span></span>
+        <span class="brand-sub">Atlas des races</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="#collection">Collection</a>
+        <a href="#familles">Familles</a>
+        <a href="#sources">Sources</a>
+      </nav>
+      <a class="header-cta" href="#collection">Explorer <span aria-hidden="true">↓</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Encyclopédie équestre · Monde</p>
+          <h1>Toutes les<br /><em>races</em> de chevaux</h1>
+          <p class="hero-lede">
+            Un atlas vivant des chevaux et poneys du monde. Origines, usages,
+            morphologies et photographies, réunis dans une seule collection.
+          </p>
+          <a class="hero-cta" href="#collection">
+            Explorer la collection
+            <span class="hero-cta-arrow" aria-hidden="true">↘</span>
+          </a>
+          <dl class="hero-stats">
+            <div>
+              <dt>Races</dt>
+              <dd id="stat-races">—</dd>
+            </div>
+            <div>
+              <dt>Pays</dt>
+              <dd id="stat-countries">—</dd>
+            </div>
+            <div>
+              <dt>Photos</dt>
+              <dd id="stat-photos">—</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-gallery">
+          <figure class="hero-frame hero-frame--one">
+            <img id="hero-img-1" alt="" loading="eager" />
+            <figcaption id="hero-cap-1"></figcaption>
+          </figure>
+          <figure class="hero-frame hero-frame--two">
+            <img id="hero-img-2" alt="" loading="eager" />
+            <figcaption id="hero-cap-2"></figcaption>
+          </figure>
+          <figure class="hero-frame hero-frame--three">
+            <img id="hero-img-3" alt="" loading="eager" />
+            <figcaption id="hero-cap-3"></figcaption>
+          </figure>
+          <div class="hero-seal" aria-hidden="true">
+            <span>Atlas</span>
+            <strong>624</strong>
+            <span>races</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marquee-track"></div>
+      </div>
+
+      <section class="catalog" id="collection">
+        <div class="section-heading">
+          <p class="eyebrow">La collection</p>
+          <h2>Parcourir les <em>races</em></h2>
+          <p class="section-intro">
+            De l’Akhal-Teké doré au Shire massif, en passant par les poneys des
+            îles et les chevaux de steppe. Cherchez par nom, pays ou famille.
+          </p>
+        </div>
+
+        <div class="toolbar">
+          <label class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Rechercher une race, un pays, un usage…"
+              autocomplete="off"
+              aria-label="Rechercher une race"
+            />
+            <button class="search-clear" id="search-clear" type="button" aria-label="Effacer la recherche" hidden>
+              ×
+            </button>
+          </label>
+
+          <div class="filter-bar">
+            <div class="chips" id="chips" role="group" aria-label="Filtrer par famille"></div>
+            <label class="select-wrap">
+              <span class="sr-only">Filtrer par pays</span>
+              <select id="country-filter">
+                <option value="">Tous les pays</option>
+              </select>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </label>
+          </div>
+        </div>
+
+        <div class="catalog-meta">
+          <p class="result-line" aria-live="polite">
+            <strong id="result-count">—</strong> <span id="result-label">races</span>
+            <span class="result-filter" id="result-filter"></span>
+          </p>
+          <button type="button" class="text-button" id="reset-filters" hidden>
+            Réinitialiser les filtres
+          </button>
+        </div>
+
+        <div class="grid" id="grid" aria-busy="true"></div>
+        <div class="empty" id="empty" hidden>
+          <p class="empty-title">Aucune race trouvée</p>
+          <p>Essayez un autre nom, un autre pays ou une autre famille.</p>
+          <button type="button" class="text-button" id="empty-reset">Tout afficher</button>
+        </div>
+
+        <div class="load-more-wrap">
+          <button type="button" class="load-more" id="load-more" hidden>
+            Afficher plus de races
+            <span id="load-more-count"></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="families" id="familles">
+        <div class="families-inner">
+          <div class="section-heading section-heading--light">
+            <p class="eyebrow">Les grandes familles</p>
+            <h2>Chaque cheval a sa <em>nature</em></h2>
+            <p class="section-intro">
+              Poneys, chevaux de trait, de selle, de steppe… Une même race peut
+              appartenir à plusieurs familles. Cliquez pour filtrer la collection.
+            </p>
+          </div>
+          <div class="family-grid" id="family-grid"></div>
+        </div>
+      </section>
+
+      <section class="sources" id="sources">
+        <div class="sources-copy">
+          <p class="eyebrow">Sources & crédits</p>
+          <h2>Un atlas <em>ouvert</em></h2>
+          <p>
+            Les fiches s’appuient sur la liste des races chevalines de Wikipédia
+            et sur les photographies de Wikimedia Commons. Chaque fiche renvoie à
+            sa source et crédite l’auteur de la photo.
+          </p>
+          <a
+            class="source-link"
+            href="https://fr.wikipedia.org/wiki/Liste_de_races_chevalines"
+            target="_blank"
+            rel="noopener"
+          >
+            Voir la liste source sur Wikipédia <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="sources-notes">
+          <div class="source-note">
+            <span>01</span>
+            <p><strong>624 races</strong> recensées comme subsistantes, classées par nom et pays d’origine.</p>
+          </div>
+          <div class="source-note">
+            <span>02</span>
+            <p><strong>451 photographies</strong> issues de Wikimedia Commons, avec auteur et licence.</p>
+          </div>
+          <div class="source-note">
+            <span>03</span>
+            <p><strong>Une encyclopédie vivante</strong> : les données et les images peuvent évoluer avec leurs sources.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">CHEVAL<span>.</span></div>
+      <p>Atlas des races · 624 races, 142 pays.</p>
+      <p class="footer-credit">
+        Données et images : Wikipédia / Wikimedia Commons. Site réalisé avec soin.
+      </p>
+    </footer>
+
+    <dialog class="breed-dialog" id="breed-dialog" aria-labelledby="dialog-name">
+      <div class="dialog-inner">
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Fermer la fiche">×</button>
+        <figure class="dialog-media">
+          <div class="dialog-placeholder" id="dialog-placeholder" aria-hidden="true"></div>
+          <img id="dialog-image" alt="" />
+          <figcaption id="dialog-credit"></figcaption>
+        </figure>
+        <div class="dialog-content">
+          <p class="eyebrow" id="dialog-origin"></p>
+          <h2 id="dialog-name"></h2>
+          <p class="dialog-alt" id="dialog-alt"></p>
+          <div class="dialog-tags" id="dialog-tags"></div>
+          <dl class="dialog-facts" id="dialog-facts"></dl>
+          <div class="dialog-links" id="dialog-links"></div>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
